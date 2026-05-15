@@ -23,7 +23,7 @@
     </a>
 
     <a href="#"
-       class="group relative py-0 text-[12px] font-semibold text-white transition duration-300">
+       class="group relative py-1 text-[12px] font-semibold text-white transition duration-300">
 
         <span class="transition duration-300 group-hover:text-[#DBFF59]">
             Solar Inverter
@@ -33,7 +33,7 @@
     </a>
 
     <a href="#"
-       class="group relative py-0 text-[12px] font-semibold text-white transition duration-300">
+       class="group relative py-1 text-[12px] font-semibold text-white transition duration-300">
 
         <span class="transition duration-300 group-hover:text-[#DBFF59]">
             IPS Battery
@@ -43,7 +43,7 @@
     </a>
 
     <a href="#"
-       class="group relative py-0 text-[12px] font-semibold text-white transition duration-300">
+       class="group relative py-1 text-[12px] font-semibold text-white transition duration-300">
 
         <span class="transition duration-300 group-hover:text-[#DBFF59]">
             Solar Panel
@@ -53,7 +53,7 @@
     </a>
 
     <a href="#"
-       class="group relative py-0 text-[12px] font-semibold text-white transition duration-300">
+       class="group relative py-1 text-[12px] font-semibold text-white transition duration-300">
 
         <span class="transition duration-300 group-hover:text-[#DBFF59]">
             Hybrid System
@@ -63,7 +63,7 @@
     </a>
 
     <a href="#"
-       class="group relative py-0 text-[12px] font-semibold text-white transition duration-300">
+       class="group relative py-1 text-[12px] font-semibold text-white transition duration-300">
 
         <span class="transition duration-300 group-hover:text-[#DBFF59]">
             Accessories
