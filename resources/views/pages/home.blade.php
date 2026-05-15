@@ -2,30 +2,61 @@
 
 @section('content')
 
-<section class="py-24 text-center bg-[var(--color-soft-bg)]">
-    <div class="max-w-7xl mx-auto px-4">
+<section class="w-full bg-white pt-4 pb-5 overflow-hidden">
+    <div class="relative w-full px-3 sm:px-4 lg:px-6">
 
-        <h1 class="text-5xl font-bold text-[var(--color-dark)] mb-6">
-            Premium Solar Energy Solutions
-        </h1>
+        <div id="heroSlider"
+            class="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2
+                   [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
-        <p class="text-lg text-[var(--color-muted)] max-w-2xl mx-auto mb-8">
-            Explore high-quality solar inverters, batteries, and renewable energy products for homes and businesses.
-        </p>
+            @php
+                $heroSlides = [
+                    ['image' => asset('images/slider/slide-1.jpg')],
+                    ['image' => asset('images/slider/slide-2.jpg')],
+                    ['image' => asset('images/slider/slide-3.jpg')],
+                    ['image' => asset('images/slider/slide-4.jpg')],
+                    ['image' => asset('images/slider/slide-5.jpg')],
+                    ['image' => asset('images/slider/slide-6.jpg')],
+                ];
+            @endphp
 
-        <div class="flex justify-center gap-4">
-            <a href="#"
-               class="px-8 py-4 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-dark)] transition">
-                Explore Products
-            </a>
+            @foreach($heroSlides as $slide)
+                <div class="snap-start shrink-0 w-[78%] sm:w-[42%] lg:w-[17.2%]">
+                    <div class="relative h-[220px] sm:h-[290px] lg:h-[360px] rounded-xl overflow-hidden bg-gray-100 shadow-sm">
+                        <img
+                            src="{{ $slide['image'] }}"
+                            alt="Solar showcase"
+                            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        >
+                    </div>
+                </div>
+            @endforeach
 
-            <a href="#"
-               class="px-8 py-4 rounded-xl border border-[var(--color-border)] font-semibold hover:bg-white transition">
-                Contact Us
-            </a>
         </div>
+
+        <button id="heroPrev"
+            class="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-md flex items-center justify-center text-xl text-black hover:scale-105 transition">
+            ❮
+        </button>
+
+        <button id="heroNext"
+            class="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-md flex items-center justify-center text-xl text-black hover:scale-105 transition">
+            ❯
+        </button>
 
     </div>
 </section>
+
+<script>
+    const heroSlider = document.getElementById('heroSlider');
+
+    document.getElementById('heroNext')?.addEventListener('click', () => {
+        heroSlider.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+
+    document.getElementById('heroPrev')?.addEventListener('click', () => {
+        heroSlider.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+</script>
 
 @endsection
