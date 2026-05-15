@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #16A34A;
+    --color-primary-dark: #15803D;
+    --color-accent: #FACC15;
+    --color-dark: #111827;
+    --color-muted: #6B7280;
+    --color-border: #E5E7EB;
+    --color-soft-bg: #F8FAFC;
+
+    --font-display: "Inter", sans-serif;
+}
+
+@layer components {
+
+    .site-container {
+        @apply w-full px-4 md:px-6 xl:px-10;
+    }
+
+}
+
+@layer utilities {
+    @keyframes tw-phone-shake {
+        0%, 100% { transform: rotate(0deg); }
+        15% { transform: rotate(-12deg); }
+        30% { transform: rotate(12deg); }
+        45% { transform: rotate(-8deg); }
+        60% { transform: rotate(8deg); }
+        75% { transform: rotate(0deg); }
+    }
+
+    .tw-phone-shake {
+        animation: tw-phone-shake 1.8s ease-in-out infinite;
+        transform-origin: center;
+    }
+}
