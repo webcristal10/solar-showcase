@@ -43,15 +43,6 @@
                 ['title' => 'Most Discount', 'icon' => '🏷️'],
                 ['title' => 'New Coming', 'icon' => '⭐'],
             ];
-
-            $products = [
-                ["name" => "Mono Solar Panel 550W", "price" => "BDT18,500.00", "old" => "BDT22,000.00", "image" => "product-1.jpg"],
-                ["name" => "Hybrid Solar Inverter", "price" => "BDT32,000.00", "old" => "BDT35,000.00", "image" => "product-2.jpg"],
-                ["name" => "Tubular Solar Battery", "price" => "BDT24,500.00", "old" => "BDT27,000.00", "image" => "product-3.jpg"],
-                ["name" => "Solar Street Light", "price" => "BDT6,800.00", "old" => "BDT8,000.00", "image" => "product-4.jpg"],
-                ["name" => "MPPT Controller", "price" => "BDT7,500.00", "old" => "BDT9,000.00", "image" => "product-5.jpg"],
-                ["name" => "Solar Mount Kit", "price" => "BDT2,700.00", "old" => "BDT4,000.00", "image" => "product-1.jpg"],
-            ];
         @endphp
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -65,18 +56,27 @@
                     </div>
 
                     <div class="grid grid-cols-3 gap-2">
-                        @foreach($products as $product)
-                            <div class="border border-gray-200 rounded-md overflow-hidden bg-white hover:shadow-lg transition duration-300 cursor-pointer">
-                                <div class="h-[160px] sm:h-[180px] lg:h-[175px] bg-white flex items-center justify-center p-2">
-                                    <img src="{{ asset('images/products/' . $product['image']) }}" alt="{{ $product['name'] }}" class="max-w-full max-h-full object-contain">
+                        @forelse($featuredProducts as $product)
+                            <a href="{{ route('products.show', $product) }}" class="border border-gray-200 rounded-md overflow-hidden bg-white hover:shadow-lg transition duration-300 cursor-pointer group">
+                                <div class="h-[160px] sm:h-[180px] lg:h-[175px] bg-white flex items-center justify-center p-2 relative overflow-hidden">
+                                    <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->name }}" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-110">
+                                    @if($product->discountPercentage())
+                                        <div class="absolute top-1 right-1 bg-red-500 text-white rounded text-[10px] font-bold px-1.5 py-0.5">
+                                            -{{ $product->discountPercentage() }}%
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="px-2 pb-3">
-                                    <p class="text-[13px] font-extrabold text-gray-900 leading-none">{{ $product['price'] }}</p>
-                                    <p class="mt-1 text-[11px] text-gray-400 line-through leading-none">{{ $product['old'] }}</p>
-                                    <h4 class="mt-2 text-[12px] leading-[1.25] text-gray-700 h-[45px] overflow-hidden">{{ $product['name'] }}</h4>
+                                    <p class="text-[13px] font-extrabold text-gray-900 leading-none">{{ $product->formattedPrice() }}</p>
+                                    @if($product->old_price)
+                                        <p class="mt-1 text-[11px] text-gray-400 line-through leading-none">{{ $product->formattedOldPrice() }}</p>
+                                    @endif
+                                    <h4 class="mt-2 text-[12px] leading-[1.25] text-gray-700 h-[45px] overflow-hidden">{{ $product->name }}</h4>
                                 </div>
-                            </div>
-                        @endforeach
+                            </a>
+                        @empty
+                            <div class="col-span-3 text-center text-gray-500 py-4">No products available</div>
+                        @endforelse
                     </div>
                 </div>
             @endforeach
