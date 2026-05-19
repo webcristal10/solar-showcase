@@ -10,29 +10,17 @@
                     <span>Assalamu Alaikum</span>
                 </div>
 
-                <div class="flex flex-1 items-center justify-center gap-2 text-center">
 
-                    <span class="hidden sm:inline text-white/90">
-                        যেকোনো পণ্য অর্ডার করতে সরাসরি আমাদের হোয়াটস্যাপ নাম্বারে করুন
-                    </span>
-
-                    <a href="tel:01926914445"
-                       class="inline-flex items-center gap-2 rounded-full border border-[#DBFF59]/30 bg-[#DBFF59]/10 px-3 py-1 font-bold text-[#DBFF59] shadow-[0_0_18px_rgba(219,255,89,0.18)] transition hover:bg-[#DBFF59] hover:text-black">
-
-                        <span class="relative flex h-5 w-5 items-center justify-center rounded-full bg-[#DBFF59] text-black">
-                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#DBFF59]/60"></span>
-
-                            <svg class="relative h-2 w-3"
-                                 viewBox="0 0 24 24"
-                                 fill="currentColor">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                        </span>
-
-                        <span>০১৯২৬৯১৪৪৪৫</span>
-                    </a>
-
-                </div>
+<div class="flex flex-1 items-center overflow-hidden relative">
+    <div class="marquee whitespace-nowrap flex items-center gap-6">
+        <span class="text-white/90">
+            যেকোনো পণ্য অর্ডার করতে সরাসরি আমাদের হোয়াটস্যাপ নাম্বারে করুন ০১৯২৬৯১৪৪৪৫
+        </span>
+        <span class="text-white/90">
+            যেকোনো পণ্য অর্ডার করতে সরাসরি আমাদের হোয়াটস্যাপ নাম্বারে করুন ০১৯২৬৯১৪৪৪৫
+        </span>
+    </div>
+</div>
 
                 <div class="hidden md:flex items-center gap-5">
                     <a href="#" class="text-white/80 transition hover:text-[#DBFF59]">Facebook</a>
