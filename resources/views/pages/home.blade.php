@@ -92,27 +92,16 @@
             <a href="#" class="text-[13px] font-semibold text-blue-600">See More →</a>
         </div>
 
-        @php
-            $categories = [
-                ["name" => "Solar Panels", "image" => "category-1.jpg"],
-                ["name" => "Inverters", "image" => "category-2.jpg"],
-                ["name" => "Batteries", "image" => "category-3.jpg"],
-                ["name" => "Controllers", "image" => "category-4.jpg"],
-                ["name" => "Solar Lights", "image" => "category-5.jpg"],
-                ["name" => "Accessories", "image" => "category-6.jpg"],
-            ];
-        @endphp
-
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
             @foreach($categories as $category)
-                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition cursor-pointer">
+                <a href="{{ route('products.category', ['category' => \Illuminate\Support\Str::slug($category['name'])]) }}" class="block bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition">
                     <div class="aspect-square bg-gray-50 overflow-hidden">
                         <img src="{{ asset('images/categories/' . $category['image']) }}" alt="{{ $category['name'] }}" class="w-full h-full object-cover">
                     </div>
                     <div class="p-2 text-center">
                         <h3 class="text-[13px] sm:text-[14px] font-medium text-gray-800">{{ $category['name'] }}</h3>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>

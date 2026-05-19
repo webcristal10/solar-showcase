@@ -20,4 +20,31 @@ class ProductController extends Controller
 
         return view('products.show', compact('product', 'relatedProducts'));
     }
+
+    public function category(string $categorySlug)
+    {
+        $category = collect($this->availableCategories())->first(function ($name) use ($categorySlug) {
+            return \Illuminate\Support\Str::slug($name) === $categorySlug;
+        });
+
+        if (! $category) {
+            abort(404);
+        }
+
+        $products = Product::where('category', $category)->get();
+
+        return view('products.category', compact('products', 'category'));
+    }
+
+    private function availableCategories(): array
+    {
+        return [
+            'Solar Panels',
+            'Inverters',
+            'Batteries',
+            'Controllers',
+            'Solar Lights',
+            'Accessories',
+        ];
+    }
 }
